@@ -1,11 +1,65 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
-    <title>Hola</title>
+    <meta charset="utf-8">
+    <title>Movilidad Académica Internacional</title>
+    <link rel="stylesheet" href="css/jvectormap.css">
+    <link rel="stylesheet" href="css/estilos.css">
   </head>
   <body>
     <header>
-       Aun no se que poner aqui
+      <div>
+        
+      </div>
     </header>
-    <a href="institucion.html">Ir a institucion</a>
+    <section class="world-container">
+       <div id="world-map"></div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <!--<script type="text/javascript" src="js/jquery.js"></script>-->
+    <script type="text/javascript" src="js/maps/jvectormap.min.js"></script>
+    <script type="text/javascript" src="js/maps/world.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        var plants = [
+            {name: 'EUA', coords: [50.9030599, 6.4213693], status: 'mrk'}
+          ];
+        var colors = {
+            IN:'',
+            US:'',
+            CA:'',
+            BR:'',
+            ES:'',
+            FR:'',
+            AR:''
+        }
+
+        for(let key in colors)
+          colors[key] = '#5D0227';
+
+        mapObj = new jvm.Map({
+          container: $('#world-map'),
+          map: 'world_mill',
+          backgroundColor: 'rgba(193, 193, 193, 0.4)',
+          markers: plants.map(function(h){ return {name: h.name, latLng: h.coords} }),
+          series: {
+            regions: [{
+            values: colors
+          }],
+            markers: [{
+              attribute: 'image',
+              scale: {
+                'mrk': 'marker.png'
+              },
+              values: plants.reduce(function(p, c, i){ p[i] = c.status; return p }, {})
+            }]
+          },
+          colors: colors,
+          hoverOpacity: 0.7, // opacity for :hover
+        	hoverColor: false
+        });
+      });
+    </script>
   </body>
 </html>
