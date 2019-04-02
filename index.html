@@ -2,14 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Movilidad Académica Internacional</title>
     <link rel="stylesheet" href="css/jvectormap.css">
     <link rel="stylesheet" href="css/estilos.css">
   </head>
   <body>
-    <header>
-      <div>
-        
+    <header class="header-index">
+      <div class="header-title-container">
+        <img class="header-politecnico-logo" src="politecnico.png">
+        <p class="p-instituto">Instituto Politécnico Nacional</p>
+      </div>
+      <div class="header-internacional">
+        <p class="header-internacional-texto">Movilidad Académica Internacional</p>
       </div>
     </header>
     <section class="world-container">
@@ -42,20 +47,21 @@
           container: $('#world-map'),
           map: 'world_mill',
           backgroundColor: 'rgba(193, 193, 193, 0.4)',
-          markers: plants.map(function(h){ return {name: h.name, latLng: h.coords} }),
+          zoomOnScroll: false,
+          // markers: plants.map(function(h){ return {name: h.name, latLng: h.coords} }),
           series: {
             regions: [{
             values: colors
           }],
-            markers: [{
-              attribute: 'image',
-              scale: {
-                'mrk': 'marker.png'
-              },
-              values: plants.reduce(function(p, c, i){ p[i] = c.status; return p }, {})
-            }]
+            // markers: [{
+            //   attribute: 'image',
+            //   scale: {
+            //     'mrk': 'marker.png'
+            //   },
+            //   values: plants.reduce(function(p, c, i){ p[i] = c.status; return p }, {})
+            // }]
           },
-          colors: colors,
+          // colors: colors,
           hoverOpacity: 0.7, // opacity for :hover
         	hoverColor: false
         });

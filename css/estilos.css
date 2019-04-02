@@ -122,6 +122,37 @@ body{
 }
 
 
+.header-index{
+	display: flex;
+	justify-content: space-around;
+	padding: 5em 0;
+}
+
+.header-title-container{
+	flex-basis: 30%;
+	text-align: center;
+}
+
+.header-politecnico-logo{
+	width: 100%;
+	display: inline-block;
+}
+
+.p-instituto{
+	font-size: 2em;
+	margin: 0;
+	text-align: center;
+}
+
+.header-internacional{
+	flex-basis: 40%;
+	text-align: center;
+}
+
+.header-internacional-texto{
+	font-size: 3em;
+}
+
 /* jvectormap */
 .jvectormap-legend-inner {
   margin-bottom: 3px;
