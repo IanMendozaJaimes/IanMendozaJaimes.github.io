@@ -123,9 +123,18 @@ body{
 
 
 .header-index{
+	background-image: url('../collage.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.header-index-container{
 	display: flex;
 	justify-content: space-around;
-	padding: 5em 0;
+	background-color: rgba(255, 255, 255, 0.68);
+	height: 75vh;
+	align-items: center;
 }
 
 .header-title-container{
@@ -142,6 +151,7 @@ body{
 	font-size: 2em;
 	margin: 0;
 	text-align: center;
+	color: #3e3e3e;
 }
 
 .header-internacional{
@@ -151,6 +161,20 @@ body{
 
 .header-internacional-texto{
 	font-size: 3em;
+	color: #3e3e3e;
+}
+
+.world-container{
+	background-color: whitesmoke;
+	position: relative;
+	z-index: 1;
+}
+
+.scroller{
+	/*transform: translateZ(-1px) scale(2);*/
+  z-index: -1;
+	height: 75vh;
+	position: relative;
 }
 
 /* jvectormap */

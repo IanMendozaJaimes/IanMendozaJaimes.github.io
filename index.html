@@ -8,18 +8,22 @@
     <link rel="stylesheet" href="css/estilos.css">
   </head>
   <body>
-    <header class="header-index">
-      <div class="header-title-container">
-        <img class="header-politecnico-logo" src="politecnico.png">
-        <p class="p-instituto">Instituto Politécnico Nacional</p>
-      </div>
-      <div class="header-internacional">
-        <p class="header-internacional-texto">Movilidad Académica Internacional</p>
-      </div>
-    </header>
-    <section class="world-container">
-       <div id="world-map"></div>
-    </section>
+    <div class="MainContainer">
+      <header class="header-index scroller">
+        <div class="header-index-container ">
+          <div class="header-title-container">
+            <img class="header-politecnico-logo" src="https://lh3.googleusercontent.com/te1s5pxh3EIAGpEwUkNVF_vUotjAxpbmSBndZzDV13wFdpqzt5a5qoVU_4xl7EHsKwE1FTVeL6IiOyDiWBR8ABYqobISqYY3B9Q7I3B6AcZ_WNHOAzg_XcpLYu0Kqd1dxynkWj8Wng=w2400">
+            <p class="p-instituto">Instituto Politécnico Nacional</p>
+          </div>
+          <div class="header-internacional">
+            <p class="header-internacional-texto">Movilidad Académica Internacional</p>
+          </div>
+        </div>
+      </header>
+      <section class="world-container">
+         <div id="world-map"></div>
+      </section>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
     <!--<script type="text/javascript" src="js/jquery.js"></script>-->
@@ -27,13 +31,36 @@
     <script type="text/javascript" src="js/maps/world.js"></script>
     <script type="text/javascript">
       $(function(){
+
+        $(window).scroll( function() {
+          var scroll = $(window).scrollTop();
+          var speed = 0.5;
+          $('.scroller').each(function(){
+        		  var $this = $(this);
+              var $parent = $this.parent();
+              var topOffset = $parent.offset().top;
+              var height = $parent.outerHeight(true);
+              var parallaxSize = (scroll - topOffset) * speed;
+
+              // prevent parallax when scroll down
+              if(scroll > topOffset + height) {
+                  return;
+              }
+
+              $this.css({
+                  'transform': scroll >= topOffset ? ('translateY(' + parallaxSize + 'px)' ) : ''
+              });
+        	});
+        });
+
+
         var plants = [
             {name: 'EUA', coords: [50.9030599, 6.4213693], status: 'mrk'}
           ];
         var colors = {
-            IN:'',
-            US:'',
-            CA:'',
+            DE:'', //ALEMANIA
+            AR:'', //ARGENTINA
+            AU:'', //AUSTRALIA
             BR:'',
             ES:'',
             FR:'',
