@@ -118,9 +118,8 @@ body{
 
 /* for the main page*/
 #world-map{
-	height: 620px;
+	height: 85vh;
 }
-
 
 .header-index{
 	background-image: url('../collage.png');
@@ -133,7 +132,7 @@ body{
 	display: flex;
 	justify-content: space-around;
 	background-color: rgba(255, 255, 255, 0.68);
-	height: 75vh;
+	height: 85vh;
 	align-items: center;
 }
 
@@ -167,15 +166,74 @@ body{
 .world-container{
 	background-color: whitesmoke;
 	position: relative;
-	z-index: 1;
+}
+
+.world-container-title{
+	background-color: #4e4e4e;
+	height: 15vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.world-container-selection{
+	margin: 0;
+	padding: 0;
+	color: white;
+	text-align: center;
+	height: auto;
+	font-size: 1.6em;
 }
 
 .scroller{
 	/*transform: translateZ(-1px) scale(2);*/
   z-index: -1;
-	height: 75vh;
+	height: 85vh;
 	position: relative;
 }
+
+.more-info{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.universities-container{
+	color: white;
+	background-color: #4e4e4e;
+	display: flex;
+	flex-wrap: wrap;
+	flex-flow: wrap-reverse;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.universities{
+	display: flex;
+	flex-flow: column wrap;
+	height: 50vh;
+	width: auto;
+	flex-basis: 60%;
+	min-width: 650px;
+	align-content: center;
+	align-items: center;
+}
+
+.university{
+	padding: 0.5em;
+	flex: 1;
+	display: flex;
+	align-items: center;
+}
+
+.university-name{
+	font-size: 1.2em;
+	margin: 0;
+}
+
 
 /* jvectormap */
 .jvectormap-legend-inner {
