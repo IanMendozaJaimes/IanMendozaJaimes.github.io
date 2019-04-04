@@ -169,7 +169,7 @@ body{
 }
 
 .world-container-title{
-	background-color: #4e4e4e;
+	background-color: #4e4e4e; /*4e7884*/
 	height: 15vh;
 	display: flex;
 	justify-content: center;
@@ -213,20 +213,35 @@ body{
 
 .universities{
 	display: flex;
-	flex-flow: column wrap;
-	height: 50vh;
-	width: auto;
-	flex-basis: 60%;
-	min-width: 650px;
-	align-content: center;
-	align-items: center;
+  flex-wrap: wrap;
+  width: auto;
+  align-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .university{
 	padding: 0.5em;
-	flex: 1;
-	display: flex;
-	align-items: center;
+  flex-basis: 35%;
+  background-color: #232323;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0.8em;
+  border: none;
+	max-width: 550px;
+	margin-bottom: 1em;
+}
+
+.university-length-35{
+	flex-basis: 35%;
+}
+
+.university-length-100{
+	flex-basis: 100%;
+}
+
+.university:hover{
+	cursor: pointer;
+	opacity: 0.7;
 }
 
 .university-name{
@@ -234,6 +249,32 @@ body{
 	margin: 0;
 }
 
+.country{
+	flex-basis: 100%;
+	justify-content: center;
+	text-align: center;
+}
+
+.country-name{
+	font-size: 2em;
+	margin: 0;
+}
+
+.country-useful-link{
+	text-decoration: none;
+  color: black;
+  background-color: whitesmoke;
+  padding: 1.2em;
+  margin: 1em 0 0 0;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+
+.country-useful-link:hover{
+	cursor: pointer;
+	opacity: 0.7;
+}
 
 /* jvectormap */
 .jvectormap-legend-inner {
@@ -256,4 +297,8 @@ body{
   height: 32px;
   display: inline-block;
   vertical-align: middle;
+}
+
+.invisible{
+	display: none;
 }

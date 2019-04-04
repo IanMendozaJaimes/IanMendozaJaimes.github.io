@@ -26,46 +26,24 @@
         </div>
          <div id="world-map"></div>
       </section>
-      <section class="universities-container">
+      <section class="universities-container invisible">
         <div class="universities">
-          <div class="university">
+          <!-- <div class="university university-length-35">
             <p class="university-name">Universidad Politecnica de Madrid</p>
           </div>
-          <div class="university">
+          <div class="university university-length-35">
             <p class="university-name">Universidad Politecnica de Barcelona</p>
           </div>
-          <div class="university">
+          <div class="university university-length-35">
             <p class="university-name">Universidad Politecnica de Madrid</p>
-          </div>
-          <div class="university">
-            <p class="university-name">Universidad Politecnica de Madrid</p>
-          </div>
-          <div class="university">
-            <p class="university-name">Universidad Politecnica de Madrid</p>
-          </div>
-
-          <div class="university">
-            <p class="university-name">Universidad Politecnica de Madrid</p>
-          </div>
-          <div class="university">
-            <p class="university-name">Universidad Politecnica de Madrid</p>
-          </div><div class="university">
-            <p class="university-name">Universidad Politecnica de Madrid</p>
-          </div><div class="university">
-            <p class="university-name">Universidad Politecnica de Madrid</p>
-          </div><div class="university">
-            <p class="university-name">Universidad Politecnica de Madrid</p>
-          </div><div class="university">
-            <p class="university-name">Universidad Politecnica de Madrid</p>
-          </div><div class="university">
-            <p class="university-name">Universidad Politecnica de Madrid</p>
-          </div>
-
+          </div> -->
         </div>
         <div class="country">
-          <p>España</p>
-          <a href="#">Enlace util</a><br>
-          <a href="#">Enlace util</a>
+          <p class="country-name">Universidades en España</p>
+          <div class="">
+            <p class="country-useful-link" href="#">Directorio del país</p>
+          </div>
+          <!-- <a class="country-useful-link" href="#">Enlace util</a> -->
         </div>
       </section>
       <section class="more-info">
@@ -133,7 +111,17 @@
               'Universidad Politécnica de Cataluña',
               'Universidad Politécnica de Madrid',
               'Universidad Politécnica de Valencia'
-            ]
+            ],
+            'isLarge': true
+          },
+          CA: {
+            'schools': [
+              "Bishop's University",
+              "École de Technologie Supérieure",
+              "École Polytechnique de Montreal",
+              "Regina's University"
+            ],
+            'isLarge': false
           }
         };
 
@@ -209,11 +197,23 @@
               event.preventDefault();
          },
          onRegionClick: function(event, code){
-           if( !(code in countries) )
+            if( !(code in more_info) )
               return null;
-           $('html, body').animate({
+            $('.universities-container').removeClass('invisible');
+            let c = more_info[code];
+            let $container = $('.universities');
+            $container.html('');
+            c.schools.forEach(function(school){
+              $container.append(
+                '<div class="university ' + ((c.isLarge) ? 'university-length-35':'university-length-100') + '">' +
+                '<p class="university-name"> ' + school + ' </p>' +
+                '</div>'
+              );
+            });
+            $('.country-name').html('Universidades en ' + countries[code]);
+            $('html, body').animate({
                scrollTop: $('.universities-container').offset().top
-           }, 300);
+             }, 300);
          }
         });
       });
