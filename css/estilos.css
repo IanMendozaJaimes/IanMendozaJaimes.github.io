@@ -208,7 +208,7 @@ body{
 	flex-flow: wrap-reverse;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	min-height: 100vh;
 }
 
 .universities{
@@ -301,4 +301,26 @@ body{
 
 .invisible{
 	display: none;
+}
+
+@media (max-width: 579px) {
+  .header-index-container {
+    display: block;
+  }
+	.header-title-container{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.header-politecnico-logo{
+		width: 40%;
+		min-width: 160px;
+		margin-top: 3em;
+	}
+	.p-instituto{
+		font-size: 1.7em;
+		margin: 1em 0 0 0;
+		text-align: left;
+		color: #3e3e3e;
+	}
 }

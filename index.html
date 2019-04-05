@@ -87,6 +87,16 @@
         	});
         });
 
+        if($(window).width() < 580)
+          $('.header-index').removeClass('scroller');
+          
+        $(window).resize(function() {
+          if($(window).width() < 580)
+            $('.header-index').removeClass('scroller');
+          else
+            $('.header-index').addClass('scroller');
+        });
+
         $('.world-container-title').click(() => {
             $('html, body').animate({
                 scrollTop: $('.world-container-title').offset().top
