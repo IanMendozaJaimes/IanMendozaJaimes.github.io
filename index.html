@@ -6,6 +6,16 @@
     <title>Movilidad Académica Internacional</title>
     <link rel="stylesheet" href="css/jvectormap.css">
     <link rel="stylesheet" href="css/estilos.css">
+
+<style media="screen">
+  .bg{
+    background-image: url("https://lh3.googleusercontent.com/ksq9QQyGbAoaUDifHE5fxLFwQG7xHGjrVbYBqRw5Fw3cl62uTVZaEWGz4PEnBggyOED5M7q23eXWBPaOFw7L_a6qnnSIbSg6OuBGCaGEJ7s3nZZpTsl6hz4F2theC7jgm6a6olvpetnHnmoZU3IM2pRGzxHbEpXJyPZyL_2Ja3nAgB44isMm_Uw7IPcGw43jnC4guqidSrW-XNEE7sc85wFsNNkiZdoPKozLSOkBnIHHNb1cws2_Xws3qhFuvnL7byyjFERrU0u1QEwuA-yGILJNFGokQp7LcRmkTET4mPULuFy6qmrxRgy-ZUlYT5Uffr_t03H-WzmLfj84Uk86DpxXaTmT4jmbeOkwmFiF7zGK9KDeR4AI985r4Ii1JbRgVPgTuUfJuz2Y0jBJN74sM5pQEsUqYJ3Y1D40edrFKkEM26pOI_BJtAxgJV1K1IQuThIT0bPFo9CyQclRq1n7nV_WGdwTFZsiisSSQpgMWSIIlqL8F-Vtj5vRYRU6yim9E-MyqJwrw_64yub_foQNJl5yogDe6p-dlMKdH-q-LjY0w1Xm6ycR8VTNj_-7nIxnCyD2oPbcbFYndzwJaWBWpHBwZslzL8wYyGugdO4ANVky8tNHIBSqqJ7E_IoxxsU7JDqkBIx7YSeIishRkvvcfieN7l-YSRU=w1085-h723-no");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+</style>
+
   </head>
   <body>
     <div class="MainContainer">
@@ -26,7 +36,9 @@
         </div>
          <div id="world-map"></div>
       </section>
-      <section class="universities-container invisible">
+      <section class="universities-container invisible bg">
+        <div class="universities-container-gradient"></div>
+        <div class="universities-decoration"></div>
         <div class="universities">
           <!-- <div class="university university-length-35">
             <p class="university-name">Universidad Politecnica de Madrid</p>
@@ -89,7 +101,7 @@
 
         if($(window).width() < 580)
           $('.header-index').removeClass('scroller');
-          
+
         $(window).resize(function() {
           if($(window).width() < 580)
             $('.header-index').removeClass('scroller');
