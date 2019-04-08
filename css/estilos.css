@@ -172,9 +172,12 @@ body{
 	background-color: #4e4e4e; /*4e7884*/
 	height: 15vh;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	cursor: pointer;
+}
+
+.world-s{
+	flex-basis: 40%;
+	height: 15vh;
 }
 
 .world-container-selection{
@@ -184,6 +187,13 @@ body{
 	text-align: center;
 	height: auto;
 	font-size: 1.6em;
+}
+
+.world-guia,
+.world-formalizacion,
+.world-exito{
+	flex-basis: 20%;
+	height: 15vh;
 }
 
 .scroller{

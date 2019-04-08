@@ -32,7 +32,21 @@
       </header>
       <section class="world-container">
         <div class="world-container-title">
-          <p class="world-container-selection">Selecciona un país</p>
+          <div class="world-guia">
+            <p class="world-guia-text">Guía de Seguimiento</p>
+            <img src="" alt="Guía de Seguimiento">
+          </div>
+          <div class="world-formalizacion">
+            <p class="world-formalizacion-text">Formalización de Pagos</p>
+            <img src="" alt="Formalización de Pagos">
+          </div>
+          <div class="world-exito">
+            <p class="world-exito-text">Casos de Éxito</p>
+            <img src="" alt="Casos de Éxito">
+          </div>
+          <div class="world-s">
+            <p class="world-container-selection">Selecciona un país</p>
+          </div>
         </div>
          <div id="world-map"></div>
       </section>
@@ -109,7 +123,7 @@
             $('.header-index').addClass('scroller');
         });
 
-        $('.world-container-title').click(() => {
+        $('.world-s').click(() => {
             $('html, body').animate({
                 scrollTop: $('.world-container-title').offset().top
             }, 300);
