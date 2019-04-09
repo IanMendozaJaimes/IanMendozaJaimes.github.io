@@ -13,6 +13,7 @@ body{
 	right: 0;
 	background-color: white;
 	box-shadow: 0 0 10px black;
+	height: 54px;
 }
 
 .list-container{
@@ -32,13 +33,13 @@ body{
 }
 
 .header-container{
-	background-color: blue;
-	min-height: 300px;
-	height: 500px;
-	background-image: url("../upm.jpg");
-	background-repeat: no-repeat;
-    	background-size: cover;
-	background-position: center;
+	background-color: #dcdcdc;
+    height: 70vh;
+    background-image: url(../upm.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-top: 54px;
 }
 
 .institution-name{
