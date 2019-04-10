@@ -6,6 +6,25 @@ body{
 	font-family: 'Open Sans', sans-serif;
 }
 
+.header-name-ins{
+	background-color: #ffffff;
+  color: #2f2f2f;
+	box-shadow: 0 0 30px #313131;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+	height: 80px;
+	display: flex;
+	align-items: center;
+}
+
+.header-name-ins p{
+	margin: 0 1em;
+	font-size: 2em;
+}
+
 .menu{
 	position: fixed;
 	top: 0;
@@ -14,6 +33,7 @@ body{
 	background-color: white;
 	box-shadow: 0 0 10px black;
 	height: 54px;
+	z-index: 99;
 }
 
 .list-container{
@@ -34,12 +54,33 @@ body{
 
 .header-container{
 	background-color: #dcdcdc;
-    height: 70vh;
-    background-image: url(../upm.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    margin-top: 54px;
+  height: 70vh;
+	position: relative;
+  /* background-image: url(../upm.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; */
+  margin-top: 80px;
+}
+
+.header-images{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-image: linear-gradient(225deg, #5c0227 0%, #d4d4d4 100%);
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+}
+
+.header-image{
+	height: 450px;
+	width: 650px;
+	box-shadow: 0 0 50px #232323ba;
 }
 
 .institution-name{
@@ -49,6 +90,8 @@ body{
 	color: white;
 	display: inline-block;
 	font-size: 1.5em;
+	z-index: 10;
+	position: absolute;
 }
 
 .institution-description{
