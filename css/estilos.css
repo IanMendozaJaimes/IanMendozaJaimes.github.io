@@ -136,12 +136,16 @@ body{
 	text-align: center;
 	margin: 0 5%;
 	text-decoration: none;
-   	color: black;
+ 	color: black;
+	max-width: 360px;
+	padding: 1em;
+	box-shadow: none;
 }
 
 .lnk:hover{
 	cursor: pointer;
-	opacity: 0.8;
+	box-shadow: 0 0 10px gray;
+	transition: box-shadow .2s ease-out;
 }
 
 .advice{
@@ -149,15 +153,19 @@ body{
 }
 
 .advice-image{
-	width: 50px;
-	display: inline-block;
+	width: 165px;
+  display: inline-block;
+  height: 165px;
+  border-radius: 100%;
+  border: solid;
+  border-width: thin;
 }
 
 .interesting-links{
 	text-align: center;
-    	font-size: 1.3em;
+	font-size: 3em;
 	padding: 0;
-	margin: 0 0 1em 0;
+	margin: 0 0 1.5em 0;
 }
 
 /* for the main page*/
