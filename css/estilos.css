@@ -71,16 +71,60 @@ body{
 	right: 0;
 	background-image: linear-gradient(225deg, #5c0227 0%, #d4d4d4 100%);
 	z-index: 2;
-	display: flex;
+	/* display: flex;
 	justify-content: center;
 	align-content: center;
-	align-items: center;
+	align-items: center; */
+	display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 20px;
+  grid-template-rows: repeat(auto-fill, 50px);
+	padding: 3em;
 }
 
 .header-image{
-	height: 450px;
-	width: 650px;
+	/* height: 450px;
+	width: 650px; */
 	box-shadow: 0 0 50px #232323ba;
+}
+
+.image1{
+	background-image: url('../upm.png');
+  grid-row-start: 1;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  grid-column-end: 6;
+}
+
+.image2{
+	background-image: url('../upm3.jpg');
+  grid-row-start: 6;
+  grid-row-end: 8;
+  grid-column-start: 2;
+  grid-column-end: 7;
+}
+
+.image3{
+	background-image: url('../upm2.jpg');
+	grid-row-start: 5;
+	grid-row-end: none;
+	grid-column-start: 7;
+	grid-column-end: none;
+}
+
+.image4{
+	background-image: url('../upm4.jpg');
+	grid-row-start: 2;
+	grid-row-end: 5;
+	grid-column-start: 6;
+	grid-column-end: 10;
+}
+
+.backg{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-shadow: 0 0 25px #00000054;
 }
 
 .institution-name{
@@ -107,7 +151,7 @@ body{
 
 .institution-videos{
 	text-align: center;
-	background-color: #6d0202;
+	background-color: #696969ad;
 	padding: 1em 0 4em 0;
 }
 
@@ -118,7 +162,7 @@ body{
 }
 
 .stories{
-	font-size: 2em;
+	font-size: 3em;
 	color: white;
 }
 
@@ -129,15 +173,17 @@ body{
 
 .lnks{
 	display: flex;
-	justify-content: center;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .lnk{
 	text-align: center;
-	margin: 0 5%;
 	text-decoration: none;
  	color: black;
-	max-width: 360px;
+	max-width: 280px;
+	min-width: 260px;
 	padding: 1em;
 	box-shadow: none;
 }
