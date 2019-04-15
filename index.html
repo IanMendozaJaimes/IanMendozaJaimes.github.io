@@ -5,21 +5,12 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Movilidad Académica Internacional</title>
     <link rel="stylesheet" href="css/jvectormap.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/estilos.css">
-
-<style media="screen">
-  .bg{
-    background-image: url("https://lh3.googleusercontent.com/ksq9QQyGbAoaUDifHE5fxLFwQG7xHGjrVbYBqRw5Fw3cl62uTVZaEWGz4PEnBggyOED5M7q23eXWBPaOFw7L_a6qnnSIbSg6OuBGCaGEJ7s3nZZpTsl6hz4F2theC7jgm6a6olvpetnHnmoZU3IM2pRGzxHbEpXJyPZyL_2Ja3nAgB44isMm_Uw7IPcGw43jnC4guqidSrW-XNEE7sc85wFsNNkiZdoPKozLSOkBnIHHNb1cws2_Xws3qhFuvnL7byyjFERrU0u1QEwuA-yGILJNFGokQp7LcRmkTET4mPULuFy6qmrxRgy-ZUlYT5Uffr_t03H-WzmLfj84Uk86DpxXaTmT4jmbeOkwmFiF7zGK9KDeR4AI985r4Ii1JbRgVPgTuUfJuz2Y0jBJN74sM5pQEsUqYJ3Y1D40edrFKkEM26pOI_BJtAxgJV1K1IQuThIT0bPFo9CyQclRq1n7nV_WGdwTFZsiisSSQpgMWSIIlqL8F-Vtj5vRYRU6yim9E-MyqJwrw_64yub_foQNJl5yogDe6p-dlMKdH-q-LjY0w1Xm6ycR8VTNj_-7nIxnCyD2oPbcbFYndzwJaWBWpHBwZslzL8wYyGugdO4ANVky8tNHIBSqqJ7E_IoxxsU7JDqkBIx7YSeIishRkvvcfieN7l-YSRU=w1085-h723-no");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-</style>
-
   </head>
   <body>
     <div class="MainContainer">
-      <header class="header-index scroller">
+      <header class="header-index">
         <div class="header-index-container ">
           <div class="header-title-container">
             <img class="header-politecnico-logo" src="https://lh3.googleusercontent.com/te1s5pxh3EIAGpEwUkNVF_vUotjAxpbmSBndZzDV13wFdpqzt5a5qoVU_4xl7EHsKwE1FTVeL6IiOyDiWBR8ABYqobISqYY3B9Q7I3B6AcZ_WNHOAzg_XcpLYu0Kqd1dxynkWj8Wng=w2400">
@@ -34,15 +25,15 @@
         <div class="world-container-title">
           <div class="world-guia">
             <p class="world-guia-text">Guía de Seguimiento</p>
-            <img src="" alt="Guía de Seguimiento">
+            <span class="icon-clipboard1"></span>
           </div>
           <div class="world-formalizacion">
             <p class="world-formalizacion-text">Formalización de Pagos</p>
-            <img src="" alt="Formalización de Pagos">
+            <span class="icon-dollar"></span>
           </div>
           <div class="world-exito">
             <p class="world-exito-text">Casos de Éxito</p>
-            <img src="" alt="Casos de Éxito">
+            <span class="icon-medal"></span>
           </div>
           <div class="world-s">
             <p class="world-container-selection">Selecciona un país</p>
@@ -69,59 +60,14 @@
           <div class="">
             <p class="country-useful-link" href="#">Directorio del país</p>
           </div>
-          <!-- <a class="country-useful-link" href="#">Enlace util</a> -->
-        </div>
-      </section>
-      <section class="more-info">
-        <div class="more-info-following">
-          <p>Guía de Seguimiento</p>
-        </div>
-        <div class="more-info-payment">
-          <p>Formalización de Pagos</p>
-        </div>
-        <div class="more-info-success">
-          <p>Casos de Éxito</p>
         </div>
       </section>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-
-    <!--<script type="text/javascript" src="js/jquery.js"></script>-->
     <script type="text/javascript" src="js/maps/jvectormap.min.js"></script>
     <script type="text/javascript" src="js/maps/world.js"></script>
     <script type="text/javascript">
       $(function(){
-
-        $(window).scroll( function() {
-          var scroll = $(window).scrollTop();
-          var speed = 0.6;
-          $('.scroller').each(function(){
-        		  var $this = $(this);
-              var $parent = $this.parent();
-              var topOffset = $parent.offset().top;
-              var height = $parent.outerHeight(true);
-              var parallaxSize = (scroll - topOffset) * speed;
-
-              // prevent parallax when scroll down
-              if(scroll > topOffset + height) {
-                  return;
-              }
-
-              $this.css({
-                  'transform': scroll >= topOffset ? ('translateY(' + parallaxSize + 'px)' ) : ''
-              });
-        	});
-        });
-
-        if($(window).width() < 580)
-          $('.header-index').removeClass('scroller');
-
-        $(window).resize(function() {
-          if($(window).width() < 580)
-            $('.header-index').removeClass('scroller');
-          else
-            $('.header-index').addClass('scroller');
-        });
 
         $('.world-s').click(() => {
             $('html, body').animate({
@@ -147,6 +93,18 @@
               'Universidad Politécnica de Cataluña',
               'Universidad Politécnica de Madrid',
               'Universidad Politécnica de Valencia'
+            ],
+            'links': [
+              '#',
+              '#',
+              '#',
+              '#',
+              '#',
+              '#',
+              '#',
+              '#',
+              'paginas/plantilla.html',
+              '#'
             ],
             'isLarge': true
           },
@@ -238,13 +196,15 @@
             $('.universities-container').removeClass('invisible');
             let c = more_info[code];
             let $container = $('.universities');
+            let i = 0;
             $container.html('');
             c.schools.forEach(function(school){
               $container.append(
-                '<div class="university ' + ((c.isLarge) ? 'university-length-35':'university-length-100') + '">' +
+                '<a href="'+ ((c.links[i] !== '#') ? (c.links[i] + '"') : '#"') +'class="university ' + ((c.isLarge) ? 'university-length-35':'university-length-100') + '">' +
                 '<p class="university-name"> ' + school + ' </p>' +
-                '</div>'
+                '</a>'
               );
+              i += 1;
             });
             $('.country-name').html('Universidades en ' + countries[code]);
             $('html, body').animate({
