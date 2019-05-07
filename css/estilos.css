@@ -181,6 +181,7 @@ body{
 	background-color: white;
 	box-shadow: 0 0 10px #b6b6b6;
 	border-radius: 10px;
+	margin: 0 0.5em 3em 0.5em;
 }
 
 .lnk:hover{
