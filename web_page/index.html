@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Movilidad Académica Internacional</title>
+    <link rel="stylesheet" href="css/jvectormap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilos.css">
+  </head>
+  <body>
+    <div class="MainContainer">
+      <header class="header-index">
+        <div class="header-index-container ">
+          <div class="header-title-container">
+            <img class="header-politecnico-logo" src="https://lh3.googleusercontent.com/te1s5pxh3EIAGpEwUkNVF_vUotjAxpbmSBndZzDV13wFdpqzt5a5qoVU_4xl7EHsKwE1FTVeL6IiOyDiWBR8ABYqobISqYY3B9Q7I3B6AcZ_WNHOAzg_XcpLYu0Kqd1dxynkWj8Wng=w2400">
+            <p class="p-instituto">Instituto Politécnico Nacional</p>
+          </div>
+          <div class="header-internacional">
+            <p class="header-internacional-texto">Movilidad Académica Internacional</p>
+          </div>
+        </div>
+      </header>
+      <section class="world-container">
+        <div class="world-container-title">
+          <div class="world-guia">
+            <p class="world-guia-text">Guía de Seguimiento</p>
+            <span class="icon-clipboard1"></span>
+          </div>
+          <div class="world-formalizacion">
+            <p class="world-formalizacion-text">Formalización de Pagos</p>
+            <span class="icon-dollar"></span>
+          </div>
+          <div class="world-exito">
+            <p class="world-exito-text">Casos de Éxito</p>
+            <span class="icon-medal"></span>
+          </div>
+          <div class="world-s">
+            <p class="world-container-selection">Selecciona un país</p>
+          </div>
+        </div>
+         <div id="world-map"></div>
+      </section>
+      <section class="universities-container invisible">
+        <!-- <div class="universities-container-gradient"></div> -->
+        <div class="universities-decoration"></div>
+        <div class="universities">
+          <!-- <div class="university university-length-35">
+            <p class="university-name">Universidad Politecnica de Madrid</p>
+          </div>
+          <div class="university university-length-35">
+            <p class="university-name">Universidad Politecnica de Barcelona</p>
+          </div>
+          <div class="university university-length-35">
+            <p class="university-name">Universidad Politecnica de Madrid</p>
+          </div> -->
+        </div>
+        <div class="country">
+          <p class="country-name">Universidades en España</p>
+          <div class="">
+            <p class="country-useful-link" href="#">Directorio del país</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/maps/jvectormap.min.js"></script>
+    <script type="text/javascript" src="js/maps/world.js"></script>
+    <script type="text/javascript">
+      $(function(){
+
+        $('.world-s').click(() => {
+            $('html, body').animate({
+                scrollTop: $('.world-container-title').offset().top
+            }, 300);
+        });
+
+
+        // var plants = [
+        //     {name: 'EUA', coords: [50.9030599, 6.4213693], status: 'mrk'}
+        //   ];
+
+        var more_info = {
+          DE:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+AR:{
+'schools':['Instituto Tecnológico de Buenos Aires',
+'Universidad Nacional del Nordeste'],
+'links':['paginas/Instituto_Tecnológico_de_Buenos_Aires.html',
+'paginas/Universidad_Nacional_del_Nordeste.html'],
+'isLarge':false
+},
+AU:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+AT:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+BE:{
+'schools':['Universidad Católica de Lovaina'],
+'links':['paginas/Universidad_Católica_de_Lovaina.html'],
+'isLarge':false
+},
+BR:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+CA:{
+'schools':['Universidad de Regina'],
+'links':['paginas/Universidad_de_Regina.html'],
+'isLarge':false
+},
+CL:{
+'schools':['Instituto Profesional DUOC UC',
+'Universidad San Sebastián',
+'Universidad Santiago de Chile'],
+'links':['paginas/Instituto_Profesional_DUOC_UC.html',
+'paginas/Universidad_San_Sebastián.html',
+'paginas/Universidad_Santiago_de_Chile.html'],
+'isLarge':false
+},
+CN:{
+'schools':['Universidad de Beihang'],
+'links':['paginas/Universidad_de_Beihang.html'],
+'isLarge':false
+},
+CO:{
+'schools':['Colegio Mayor de Antioquía',
+'Pontificia Universidad Javeriana',
+'Universidad de Santo Tomás'],
+'links':['paginas/Colegio_Mayor_de_Antioquía.html',
+'paginas/Pontificia_Universidad_Javeriana.html',
+'paginas/Universidad_de_Santo_Tomás.html'],
+'isLarge':false
+},
+KR:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+CR:{
+'schools':['Instituto Tecnológico de Costa Rica',
+'Universidad de Costa Rica'],
+'links':['paginas/Instituto_Tecnológico_de_Costa_Rica.html',
+'paginas/Universidad_de_Costa_Rica.html'],
+'isLarge':false
+},
+EC:{
+'schools':['Universidad de Especialidades y Espíritu Santo'],
+'links':['paginas/Universidad_de_Especialidades_y_Espíritu_Santo.html'],
+'isLarge':false
+},
+ES:{
+'schools':['Universidad Autónoma de Barcelona',
+'Universidad de Alicante',
+'Universidad de Santiago de Compostela',
+'Universidad del País Vasco',
+'Universidad Politécnica de Cataluña',
+'Universidad Politécnica de Valencia'],
+'links':['paginas/Universidad_Autónoma_de_Barcelona.html',
+'paginas/Universidad_de_Alicante.html',
+'paginas/Universidad_de_Santiago_de_Compostela.html',
+'paginas/Universidad_del_País_Vasco.html',
+'paginas/Universidad_Politécnica_de_Cataluña.html',
+'paginas/Universidad_Politécnica_de_Valencia.html'],
+'isLarge':false
+},
+US:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+FI:{
+'schools':['Universidad de Aalto'],
+'links':['paginas/Universidad_de_Aalto.html'],
+'isLarge':false
+},
+FR:{
+'schools':['Escuela Nacional de Aviación Civil (ENAC) Toulouse',
+'Universidad de Rouen',
+'Universidad de Tecnología de Compiègne',
+'Universidad Lumiere Lyon'],
+'links':['paginas/Escuela_Nacional_de_Aviación_Civil_(ENAC)_Toulouse.html',
+'paginas/Universidad_de_Rouen.html',
+'paginas/Universidad_de_Tecnología_de_Compiègne.html',
+'paginas/Universidad_Lumiere_Lyon.html'],
+'isLarge':false
+},
+NL:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+IN:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+IS:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+IT:{
+'schools':['Politécnico de Milán'],
+'links':['paginas/Politécnico_de_Milán.html'],
+'isLarge':false
+},
+JP:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+LV:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+MY:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+PA:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+PY:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+PE:{
+'schools':['Universidad Andina del Cusco',
+'Universidad Antenor Orrego'],
+'links':['paginas/Universidad_Andina_del_Cusco.html',
+'paginas/Universidad_Antenor_Orrego.html'],
+'isLarge':false
+},
+PL:{
+'schools':['Universidad de Tecnología de Silesia',
+'Universidad de Wroclaw'],
+'links':['paginas/Universidad_de_Tecnología_de_Silesia.html',
+'paginas/Universidad_de_Wroclaw.html'],
+'isLarge':false
+},
+PT:{
+'schools':['Universidad de Porto',
+'Universidad Técnica de Lisboa'],
+'links':['paginas/Universidad_de_Porto.html',
+'paginas/Universidad_Técnica_de_Lisboa.html'],
+'isLarge':false
+},
+CZ:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+SG:{
+'schools':[],
+'links':[],
+'isLarge':false
+},
+SE:{
+'schools':['KTH'],
+'links':['paginas/KTH.html'],
+'isLarge':false
+},
+TW:{
+'schools':['National Taiwan University of Sciencie and Technology'],
+'links':['paginas/National_Taiwan_University_of_Sciencie_and_Technology.html'],
+'isLarge':false
+},
+UY:{
+'schools':[],
+'links':[],
+'isLarge':false
+}
+          // ES: {
+          //   'schools': [
+          //     'Universidad Autónoma de Barcelona',
+          //     'Universidad de Alicante',
+          //     'Universidad de Almería',
+          //     'Universidad de Oviedo',
+          //     'Universidad de Santiago de Compostela',
+          //     'Universidad del País Vasco',
+          //     'Universidad del Rey Juan Carlos',
+          //     'Universidad Politécnica de Cataluña',
+          //     'Universidad Politécnica de Madrid',
+          //     'Universidad Politécnica de Valencia'
+          //   ],
+          //   'links': [
+          //     '#',
+          //     '#',
+          //     '#',
+          //     '#',
+          //     '#',
+          //     '#',
+          //     '#',
+          //     '#',
+          //     'paginas/plantilla.html',
+          //     '#'
+          //   ],
+          //   'isLarge': true
+          // },
+          // CA: {
+          //   'schools': [
+          //     "Bishop's University",
+          //     "École de Technologie Supérieure",
+          //     "École Polytechnique de Montreal",
+          //     "Regina's University"
+          //   ],
+          //   'isLarge': false
+          // }
+        };
+
+        var countries = {
+            AR:'ARGENTINA',
+BE:'BELGICA',
+CA:'CANADA',
+CL:'CHILE',
+CN:'CHINA',
+CO:'COLOMBIA',
+CR:'COSTA RICA',
+EC:'ECUADOR',
+ES:'ESPAÑA',
+FI:'FINLANDIA',
+FR:'FRANCIA',
+IT:'ITALIA',
+PE:'PERU',
+PL:'POLONIA',
+PT:'PORTUGAL',
+SE:'SUECIA',
+TW:'TAIWAN'
+        }
+
+        var colors = {};
+
+        for(let key in countries){
+          colors[key] = '#5D0227';
+        }
+
+
+        mapObj = new jvm.Map({
+          container: $('#world-map'),
+          map: 'world_mill',
+          backgroundColor: 'rgba(193, 193, 193, 0.4)',
+          zoomOnScroll: false,
+          // markers: plants.map(function(h){ return {name: h.name, latLng: h.coords} }),
+          series: {
+            regions: [{
+            values: colors
+          }],
+            // markers: [{
+            //   attribute: 'image',
+            //   scale: {
+            //     'mrk': 'marker.png'
+            //   },
+            //   values: plants.reduce(function(p, c, i){ p[i] = c.status; return p }, {})
+            // }]
+          },
+          // colors: colors,
+          hoverOpacity: 0.7, // opacity for :hover
+        	hoverColor: false,
+          onRegionTipShow: function(event, label, code){
+            if(code in countries)
+              label.html(countries[code]);
+            else
+              event.preventDefault();
+         },
+         onRegionClick: function(event, code){
+            if( !(code in more_info) )
+              return null;
+            $('.universities-container').removeClass('invisible');
+            let c = more_info[code];
+            let $container = $('.universities');
+            let i = 0;
+            $container.html('');
+            c.schools.forEach(function(school){
+              $container.append(
+                '<a href="'+ ((c.links[i] !== '#') ? (c.links[i] + '"') : '#"') +'class="university ' + ((c.isLarge) ? 'university-length-35':'university-length-100') + '">' +
+                '<p class="university-name"> ' + school + ' </p>' +
+                '</a>'
+              );
+              i += 1;
+            });
+            $('.country-name').html('Universidades en ' + countries[code]);
+            $('html, body').animate({
+               scrollTop: $('.universities-container').offset().top
+             }, 300);
+         }
+        });
+      });
+
+    </script>
+  </body>
+</html>
