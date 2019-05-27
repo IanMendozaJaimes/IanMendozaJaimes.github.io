@@ -1,1 +1,0 @@
-# ianmendozajaimes.github.io
